@@ -2,6 +2,7 @@ package database
 
 import (
 	"log"
+	"os"
 	"time"
 
 	"github.com/guilhermeonrails/api-go-gin/models"
@@ -12,7 +13,12 @@ import (
 var DB *gorm.DB
 
 func ConectaComBancoDeDados() {
-	stringDeConexao := "host=postgres user=root password=root dbname=root port=5432 sslmode=disable"
+	host := os.Getenv("DB_HOST")
+	user := os.Getenv("DB_USER")
+	password := os.Getenv("DB_PASSWORD")
+	dbname := os.Getenv("DB_NAME")
+	port := os.Getenv("DB_PORT")
+	stringDeConexao := "host=" + host + " user=" + user + " password=" + password + " dbname=" + dbname + " port=" + port + "stgres user=root password=root dbname=root port=5432 sslmode=disable"
 
 	var err error
 
