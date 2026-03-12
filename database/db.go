@@ -37,5 +37,5 @@ func ConectaComBancoDeDados() {
 		log.Panic("Erro ao conectar com banco de dados após várias tentativas")
 	}
 
-	DB.AutoMigrate(&models.Aluno{})
+	_ = DB.AutoMigrate(&models.Aluno{})
 }
